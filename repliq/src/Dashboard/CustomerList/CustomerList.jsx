@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import getCustomerData from "../../Hooks/getCustomerData.jsx";
 import {Link} from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -17,32 +16,60 @@ const CustomerList = () => {
     }, [isDeleted])
 
     const removeCustomer = id => {
-        fetch(`${import.meta.env.VITE_BASE_URL}/customers/${id}`, {
-            method: 'DELETE'
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if(data.deletedCount){
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Data deleted',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                    setIsDeleted(!isDeleted)
-                }
-            })
-            .catch(e => {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'info',
-                    title: 'Something is wrong',
-                    showConfirmButton: false,
-                    timer: 1500
+
+        swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`${import.meta.env.VITE_BASE_URL}/customers/${id}`, {
+                    method: 'DELETE'
                 })
-            })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if(data.deletedCount){
+                            swalWithBootstrapButtons.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            setIsDeleted(!isDeleted)
+                        }
+                    })
+                    .catch(e => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'info',
+                            title: 'Something is wrong',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    })
+
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Cancelled',
+                    'Your imaginary file is safe :)',
+                    'error'
+                )
+            }
+        })
     }
 
     return (
