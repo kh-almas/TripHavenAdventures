@@ -47,7 +47,7 @@ const DashboardLayouts = () => {
                         <ul>
                             <li><Link to={'/dashboard'} ><BsFillHousesFill></BsFillHousesFill> Home</Link></li>
                             <li><Link to={'/dashboard/customer'} > <FaCreativeCommonsBy></FaCreativeCommonsBy> Customers</Link></li>
-                            <li><Link to={'/dashboard'} ><FaLuggageCart></FaLuggageCart> Order</Link></li>
+                            <li><Link to={'/dashboard/order'} ><FaLuggageCart></FaLuggageCart> Order</Link></li>
                             <li><Link to={'/dashboard/product'} ><HiArchiveBox></HiArchiveBox> Product</Link></li>
                         </ul>
                         <div className="divider"></div>

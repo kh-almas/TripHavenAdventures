@@ -76,11 +76,7 @@ const ProductDetails = () => {
                 <div className="max-w-4xl mx-auto bg-white rounded-md shadow-md overflow-hidden w-full">
                     <div className="md:flex">
                         <div className="md:flex-shrink-0 flex justify-center items-center">
-                            <img
-                                src="https://via.placeholder.com/400"
-                                alt="Wireless Bluetooth Headphones"
-                                className="h-64 w-full object-cover md:w-64"
-                            />
+                            <img src="https://via.placeholder.com/400" alt="Wireless Bluetooth Headphones" className="h-64 w-full object-cover md:w-64"/>
                         </div>
                         <div className="p-6">
                             <h2 className="text-3xl font-semibold text-gray-800">{product.name}</h2>

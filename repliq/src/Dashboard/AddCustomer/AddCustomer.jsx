@@ -47,38 +47,20 @@ const AddCustomer = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-4">
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            className="mt-1 p-2 border rounded-md w-full"
-                            {...register('name', { required: 'Name is required' })}
-                        />
+                        <input type="text" id="name" className="mt-1 p-2 border rounded-md w-full"{...register('name', { required: 'Name is required' })}/>
                         {errors.name && <span className="text-red-500 text-sm">{errors.name.message}</span>}
                     </div>
                     <div className="mb-4">
                         <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone Number</label>
-                        <input
-                            type="text"
-                            id="phone"
-                            className="mt-1 p-2 border rounded-md w-full"
-                            {...register('phone', { required: 'Phone Number is required' })}
-                        />
+                        <input type="text" id="phone" className="mt-1 p-2 border rounded-md w-full"{...register('phone', { required: 'Phone Number is required' })}/>
                         {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
                     </div>
                     <div className="mb-4">
                         <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            className="mt-1 p-2 border rounded-md w-full"
-                            {...register('password', { required: 'Password is required' })}
-                        />
+                        <input type="text" id="password" className="mt-1 p-2 border rounded-md w-full"{...register('password', { required: 'Password is required' })}/>
                         {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
                     </div>
-                    <button
-                        type="submit"
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    >
+                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Register
                     </button>
                 </form>

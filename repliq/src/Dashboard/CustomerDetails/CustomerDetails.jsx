@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import getCustomerData from "../../Hooks/getCustomerData.jsx";
 import Swal from "sweetalert2";
 import {useParams} from "react-router-dom";
 

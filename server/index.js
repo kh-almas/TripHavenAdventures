@@ -29,6 +29,14 @@ async function run() {
         const cartCollection = client.db("repliq").collection("cart");
         const orderCollection = client.db("repliq").collection("order");
 
+
+
+        // get best product
+        app.get('/best-products', async (req, res) => {
+            const result = await productCollection.find().limit(6).toArray();
+            res.send(result);
+        })
+
         // get all user
         app.get('/all-customers', async (req, res) => {
             const result = await customerCollection.find().toArray();
@@ -161,6 +169,21 @@ async function run() {
 
             const filter = { _id: { $in: objectIds } };
             await cartCollection.deleteMany(filter);
+            res.send(result);
+        })
+
+        // my product order
+        app.get('/my-product-order/:phone', async (req, res) => {
+            const phone = req.params.phone;
+            const query = {sellerNumber: phone};
+            const result = await orderCollection.find(query).toArray();
+            res.send(result);
+        })
+
+        app.get('/order/details/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = {_id: new ObjectId(id)};
+            const result = await orderCollection.findOne(query);
             res.send(result);
         })
 

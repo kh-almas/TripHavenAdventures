@@ -31,7 +31,7 @@ const Header = () => {
         });
     }
     return (
-        <div className="navbar bg-base-100 fixed">
+        <div className="navbar bg-base-100 fixed z-50">
             <div className="flex-1">
                 <a className="btn btn-ghost normal-case text-xl">REPLIQ</a>
             </div>
@@ -46,7 +46,7 @@ const Header = () => {
                     user ?
                         <>
                             <Link to={'/dashboard'} className="btn btn-accent text-white mr-3"><BsFillHousesFill></BsFillHousesFill> Dashboard</Link>
-                            <Link to={'/login'} className="btn btn-accent text-white mr-3"><FaSignOutAlt></FaSignOutAlt>Logout</Link>
+                            <button onClick={() => handelLogout()} className="btn btn-accent text-white mr-3"><FaSignOutAlt></FaSignOutAlt>Logout</button>
                         </>
                         :
                         <>

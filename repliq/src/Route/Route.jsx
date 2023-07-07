@@ -17,12 +17,19 @@ import CustomerDetails from "../Dashboard/CustomerDetails/CustomerDetails.jsx";
 import AddProductByAdmin from "../Dashboard/AddProduct/AddProductByAdmin.jsx";
 import AdminProductList from "../Dashboard/ProductList/AdminProductList.jsx";
 import AdminProductDetails from "../Dashboard/ProductDetails/AdminProductDetails.jsx";
+import OrderList from "../Dashboard/OrderList/OrderList.jsx";
+import OrderDetails from "../Dashboard/OrderDetails/OrderDetails.jsx";
+import Home from "../Pages/Home/Home.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
         children: [
+            {
+                path: "/",
+                element: <Home />
+            },
             {
                 path: "/login",
                 element: <Login />
@@ -51,7 +58,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/dashboard",
-                element: <Dashboard />
+                element: <PrivateRoute><Dashboard /></PrivateRoute>
             },
             {
                 path: "/dashboard/customer",
@@ -59,28 +66,31 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboard/customer/create",
-                // element: <PrivateRoute><AddCustomer /></PrivateRoute>
-                element: <AddCustomer />
+                element: <PrivateRoute><AddCustomer /></PrivateRoute>
             },
             {
                 path: "/dashboard/customer/details/:id",
-                // element: <PrivateRoute><CustomerDetails /></PrivateRoute>
-                element: <CustomerDetails />
+                element: <PrivateRoute><CustomerDetails /></PrivateRoute>
             },
             {
                 path: "/dashboard/product",
-                // element: <PrivateRoute><ProductList /></PrivateRoute>
-                element: <AdminProductList />
+                element: <PrivateRoute><AdminProductList /></PrivateRoute>
             },
             {
                 path: "/dashboard/product/create",
-                // element: <PrivateRoute><AddProduct /></PrivateRoute>
-                element: <AddProductByAdmin />
+                element: <PrivateRoute><AddProductByAdmin /></PrivateRoute>
             },
             {
                 path: "/dashboard/product/details/:id",
-                // element: <PrivateRoute><CustomerDetails /></PrivateRoute>
-                element: <AdminProductDetails />
+                element: <PrivateRoute><AdminProductDetails /></PrivateRoute>
+            },
+            {
+                path: "/dashboard/order",
+                element: <PrivateRoute><OrderList /></PrivateRoute>
+            },
+            {
+                path: "/dashboard/order/details/:id",
+                element: <PrivateRoute><OrderDetails /></PrivateRoute>
             },
         ]
     },

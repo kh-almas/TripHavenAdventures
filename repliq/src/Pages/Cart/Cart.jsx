@@ -70,7 +70,6 @@ const Cart = () => {
                     })
 
             } else if (
-                /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel
             ) {
                 swalWithBootstrapButtons.fire(
@@ -83,9 +82,6 @@ const Cart = () => {
     }
 
     const orderNow = () => {
-
-        // console.log(setItem);
-
         fetch(`${import.meta.env.VITE_BASE_URL}/order`, {
             method: 'POST',
             headers:{
@@ -163,7 +159,6 @@ const Cart = () => {
                             </tr>
                         )
                     }
-
                     </tbody>
                 </table>
             </div>

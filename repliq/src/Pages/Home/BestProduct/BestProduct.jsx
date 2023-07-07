@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
 import Swal from "sweetalert2";
+import {Link} from "react-router-dom";
 
-const ProductList = () => {
-    const [products, setProducts] = useState([])
+const BestProduct = () => {
+    const [bestProducts, setBestProducts] = useState([])
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_BASE_URL}/all-products`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/best-products`)
             .then(res => res.json())
-            .then(data => setProducts(data))
+            .then(data => setBestProducts(data))
             .catch(e => {
                 console.log(e);
                 Swal.fire({
@@ -26,7 +26,7 @@ const ProductList = () => {
             <h1 className="text-3xl font-bold mb-8">Products</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {
-                    products?.map((info, index) =>
+                    bestProducts?.map((info, index) =>
                         <div key={index} className="max-w-sm mx-auto bg-white rounded-md shadow-md overflow-hidden w-full">
                             <img src="https://via.placeholder.com/200" alt="Product 1" className="w-full h-48 object-cover" />
                             <div className="px-4 py-3">
@@ -38,10 +38,9 @@ const ProductList = () => {
                         </div>
                     )
                 }
-
             </div>
         </div>
     );
 };
 
-export default ProductList;
+export default BestProduct;
