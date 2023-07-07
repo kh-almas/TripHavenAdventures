@@ -26,6 +26,8 @@ async function run() {
     try {
         const customerCollection = client.db("repliq").collection("users");
         const productCollection = client.db("repliq").collection("products");
+        const cartCollection = client.db("repliq").collection("cart");
+        const orderCollection = client.db("repliq").collection("order");
 
         // get all user
         app.get('/all-customers', async (req, res) => {
@@ -81,7 +83,7 @@ async function run() {
                     brand: data.brand,
                     color: data.color,
                     weight: data.weight,
-                    Dimensions: data.Dimensions,
+                    dimensions: data.dimensions,
                 }
             };
             const options = { upsert: true };
@@ -102,6 +104,63 @@ async function run() {
             const data = req.params.id;
             const query = {_id: new ObjectId(data)};
             const result = await productCollection.deleteOne(query);
+            res.send(result);
+        })
+
+        // get my cart product
+        app.get('/cart/:phone', async (req, res) => {
+            const phone = req.params.phone;
+            const query = {userPhone: phone};
+            const result = await cartCollection.find(query).toArray();
+            res.send(result);
+        })
+
+        //add in cart
+        app.post('/cart', async (req, res) => {
+            const data = req.body;
+            const update = {
+                $set: {
+                    userName: data.userName,
+                    userEmail: data.userEmail,
+                    userPhone: data.userPhone,
+                    name: data.name,
+                    price: data.price,
+                    description: data.description,
+                    brand: data.brand,
+                    color: data.color,
+                    weight: data.weight,
+                    dimensions: data.dimensions,
+                }
+            };
+            const options = { upsert: true };
+            const result = await cartCollection.updateOne(data, update, options);
+            res.send(result);
+        })
+
+        // delete cart product
+        app.delete('/cart/:id', async (req, res) => {
+            const data = req.params.id;
+            const query = {_id: new ObjectId(data)};
+            const result = await cartCollection.deleteOne(query);
+            res.send(result);
+        })
+
+        // order from cart
+        app.post('/order', async (req, res) => {
+            const data = req.body;
+            let setItem = [];
+            let setIds = [];
+            data.map(singleItem => {
+                setIds.push(singleItem._id);
+                delete singleItem._id;
+                setItem.push(singleItem);
+            })
+            const result = await orderCollection.insertMany(setItem);
+
+            const objectIds = setIds.map((id) => new ObjectId(id));
+
+            const filter = { _id: { $in: objectIds } };
+            await cartCollection.deleteMany(filter);
             res.send(result);
         })
 

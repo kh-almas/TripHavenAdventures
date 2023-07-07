@@ -8,7 +8,6 @@ const AddCustomer = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
         fetch(`${import.meta.env.VITE_BASE_URL}/customers`, {
             method: 'POST',
             headers:{

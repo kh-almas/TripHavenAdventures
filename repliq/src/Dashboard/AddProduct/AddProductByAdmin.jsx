@@ -9,7 +9,6 @@ const AddProductByAdmin = () => {
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        console.log(data);
         fetch(`${import.meta.env.VITE_BASE_URL}/products`, {
             method: 'POST',
             headers:{
