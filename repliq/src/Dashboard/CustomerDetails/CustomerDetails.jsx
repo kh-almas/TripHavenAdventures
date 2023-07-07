@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import {useParams} from "react-router-dom";
 
 const CustomerDetails = () => {
-    const {id} = useParams()
+    const {id} = useParams();
     const [customer, setCustomer] =useState({});
     useEffect(() => {
         fetch(`${import.meta.env.VITE_BASE_URL}/customer/details/${id}`)

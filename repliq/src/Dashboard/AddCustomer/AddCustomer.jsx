@@ -23,7 +23,7 @@ const AddCustomer = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Data Created',
+                        title: 'Customer Created',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -42,8 +42,8 @@ const AddCustomer = () => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen">
-            <div className="w-full sm:w-96">
+        <>
+            <div className="w-full">
                 <h1 className="text-3xl font-bold mb-4">Add customer</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-4">
@@ -84,7 +84,7 @@ const AddCustomer = () => {
                     </button>
                 </form>
             </div>
-        </div>
+        </>
     );
 };
 

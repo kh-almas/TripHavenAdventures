@@ -25,6 +25,7 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         const customerCollection = client.db("repliq").collection("users");
+        const productCollection = client.db("repliq").collection("products");
 
         // get all user
         app.get('/all-customers', async (req, res) => {
@@ -60,6 +61,47 @@ async function run() {
             const data = req.params.id;
             const query = {_id: new ObjectId(data)};
             const result = await customerCollection.deleteOne(query);
+            res.send(result);
+        })
+
+        // get all products
+        app.get('/all-products', async (req, res) => {
+            const result = await productCollection.find().toArray();
+            res.send(result);
+        })
+
+        //store product
+        app.post('/products', async (req, res) => {
+            const data = req.body;
+            const update = {
+                $set: {
+                    name: data.name,
+                    price: data.price,
+                    description: data.description,
+                    brand: data.brand,
+                    color: data.color,
+                    weight: data.weight,
+                    Dimensions: data.Dimensions,
+                }
+            };
+            const options = { upsert: true };
+            const result = await productCollection.updateOne(data, update, options);
+            res.send(result);
+        })
+
+        //get single product
+        app.get('/product/details/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = {_id: new ObjectId(id)};
+            const result = await productCollection.findOne(query);
+            res.send(result);
+        })
+
+        // delete product
+        app.delete('/product/:id', async (req, res) => {
+            const data = req.params.id;
+            const query = {_id: new ObjectId(data)};
+            const result = await productCollection.deleteOne(query);
             res.send(result);
         })
 

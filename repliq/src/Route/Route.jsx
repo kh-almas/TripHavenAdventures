@@ -14,6 +14,9 @@ import CustomerList from "../Dashboard/CustomerList/CustomerList.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
 import AddCustomer from "../Dashboard/AddCustomer/AddCustomer.jsx";
 import CustomerDetails from "../Dashboard/CustomerDetails/CustomerDetails.jsx";
+import AddProductByAdmin from "../Dashboard/AddProduct/AddProductByAdmin.jsx";
+import AdminProductList from "../Dashboard/ProductList/AdminProductList.jsx";
+import AdminProductDetails from "../Dashboard/ProductDetails/AdminProductDetails.jsx";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +66,21 @@ const router = createBrowserRouter([
                 path: "/dashboard/customer/details/:id",
                 // element: <PrivateRoute><CustomerDetails /></PrivateRoute>
                 element: <CustomerDetails />
+            },
+            {
+                path: "/dashboard/product",
+                // element: <PrivateRoute><ProductList /></PrivateRoute>
+                element: <AdminProductList />
+            },
+            {
+                path: "/dashboard/product/create",
+                // element: <PrivateRoute><AddProduct /></PrivateRoute>
+                element: <AddProductByAdmin />
+            },
+            {
+                path: "/dashboard/product/details/:id",
+                // element: <PrivateRoute><CustomerDetails /></PrivateRoute>
+                element: <AdminProductDetails />
             },
         ]
     },

@@ -1,16 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CustomerList = () => {
-    const [customer, setCustomer] = useState([])
+const AdminProductList = () => {
+    const [products, setProducts] = useState([])
     const [isDeleted, setIsDeleted] = useState(false);
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_BASE_URL}/all-customers`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/all-products`)
             .then(res => res.json())
-            .then(data => setCustomer(data))
+            .then(data => setProducts(data))
             .catch(e => {
+                console.log(e);
                 Swal.fire({
                     position: 'top-end',
                     icon: 'info',
@@ -40,7 +41,7 @@ const CustomerList = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`${import.meta.env.VITE_BASE_URL}/customers/${id}`, {
+                fetch(`${import.meta.env.VITE_BASE_URL}/product/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -49,7 +50,7 @@ const CustomerList = () => {
                         if(data.deletedCount){
                             swalWithBootstrapButtons.fire(
                                 'Deleted!',
-                                'Customer has been deleted.',
+                                'Product has been deleted.',
                                 'success'
                             )
                             setIsDeleted(!isDeleted)
@@ -81,29 +82,33 @@ const CustomerList = () => {
     return (
         <>
             <div>
-                <Link to={'/dashboard/customer/create'} className="btn btn-accent text-white mb-5">create</Link>
+                <Link to={'/dashboard/product/create'} className="btn btn-accent text-white mb-5">create</Link>
             </div>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     {/* head */}
                     <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Phone Number</th>
-                            <th>Action</th>
-                        </tr>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Brand</th>
+                        <th>color</th>
+                        <th>Action</th>
+                    </tr>
                     </thead>
                     <tbody>
                     {
-                        customer?.map((info, index) =>
+                        products?.map((info, index) =>
                             <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td>{info?.name}</td>
-                                <td>{info?.phone}</td>
+                                <td>{info?.price}</td>
+                                <td>{info?.brand}</td>
+                                <td>{info?.color}</td>
                                 <td>
                                     <button onClick={() => removeCustomer(info?._id)} className="btn btn-ghost btn-xs">remove</button>
-                                    <Link to={`/dashboard/customer/details/${info?._id}`} className="btn btn-ghost btn-xs">details</Link>
+                                    <Link to={`/dashboard/product/details/${info?._id}`} className="btn btn-ghost btn-xs">details</Link>
                                 </td>
                             </tr>
                         )
@@ -116,4 +121,4 @@ const CustomerList = () => {
     );
 };
 
-export default CustomerList;
+export default AdminProductList;
