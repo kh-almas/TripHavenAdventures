@@ -1,11 +1,34 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link} from "react-router-dom";
 import { FiHome } from "react-icons/fi";
 import { HiArchiveBox } from "react-icons/hi2";
 import { BsFillHousesFill } from "react-icons/bs";
 import { FaSignInAlt } from "react-icons/fa";
+import {AuthContext} from "../../../Provider/AuthProvider.jsx";
+import Swal from "sweetalert2";
 
 const Header = () => {
+    const {user, logout} = useContext(AuthContext);
+    const handelLogout = () =>{
+        logout()
+            .then(() => {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'You are loged out',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }).catch((error) => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Something is wrong',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        });
+    }
     return (
         <div className="navbar bg-base-100 fixed">
             <div className="flex-1">

@@ -11,6 +11,7 @@ import Cart from "../Pages/Cart/Cart.jsx";
 import Dashboard from "../Dashboard/Dashboard/Dashboard.jsx";
 import DashboardLayouts from "../Layouts/Dashboard/DashboardLayouts.jsx";
 import CustomerList from "../Dashboard/CustomerList/CustomerList.jsx";
+import PrivateRoute from "./PrivateRoute.jsx";
 
 const router = createBrowserRouter([
     {
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/dashboard/customer",
-                element: <CustomerList />
+                element: <PrivateRoute><CustomerList /></PrivateRoute>
             },
         ]
     },

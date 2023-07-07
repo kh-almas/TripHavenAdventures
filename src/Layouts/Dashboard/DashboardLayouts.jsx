@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link, Outlet} from "react-router-dom";
 import { FiHome } from "react-icons/fi";
 import { HiArchiveBox } from "react-icons/hi2";
@@ -6,8 +6,31 @@ import { BsFillHousesFill } from "react-icons/bs";
 import { FaCreativeCommonsBy } from "react-icons/fa";
 import { FaLuggageCart } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
+import {AuthContext} from "../../Provider/AuthProvider.jsx";
+import Swal from "sweetalert2";
 
 const DashboardLayouts = () => {
+    const {user, logout} = useContext(AuthContext);
+    const handelLogout = () =>{
+        logout()
+            .then(() => {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'You are loged out',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }).catch((error) => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Something is wrong',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        });
+    }
     return (
         <>
             <div className="drawer lg:drawer-open">
@@ -33,7 +56,7 @@ const DashboardLayouts = () => {
                             <li><Link to={'/all-product'} ><HiArchiveBox></HiArchiveBox> All Product</Link></li>
                         </ul>
                         <div className="divider"></div>
-                        <button className="mr-4 flex items-center"><FaSignOutAlt className="mr-2"></FaSignOutAlt>Logout</button>
+                        <button onClick={handelLogout} className="mr-4 flex items-center"><FaSignOutAlt className="mr-2"></FaSignOutAlt>Logout</button>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../../Provider/AuthProvider.jsx";
 import firebase from "firebase/compat/app";
 import * as firebaseui from "firebaseui";
@@ -7,6 +7,10 @@ import "firebaseui/dist/firebaseui.css"
 import auth from "../../Firebase/Firebase.config.js";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/dashboard';
+
     useEffect(() => {
         const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
         ui.start('#phone_auth', {
@@ -16,7 +20,8 @@ const Login = () => {
                     defaultCountry: 'BD',
                     defaultNationalNumber: '1234567890',
                 }
-            ]
+            ],
+            signInSuccessUrl: `/dashboard`,
         });
     }, [])
     return (
