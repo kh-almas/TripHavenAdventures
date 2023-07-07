@@ -1,0 +1,202 @@
+[
+  {
+    "id": "abc12345",
+    "name": "Wireless Bluetooth Headphones",
+    "price": 99.99,
+    "description": "Experience superior sound quality and freedom with our wireless Bluetooth headphones. These headphones provide a comfortable fit, noise cancellation, and long battery life for an immersive audio experience.",
+    "brand": "Acoustic Vibes",
+    "color": "Black",
+    "weight": "0.3 lbs",
+    "dimensions": "7.5 x 3.5 x 9 inches"
+  },
+  {
+    "id": "def67890",
+    "name": "Smart LED TV",
+    "price": 499.99,
+    "description": "Enjoy stunning visuals and smart features with our Smart LED TV. It offers high-definition resolution, built-in streaming services, and seamless connectivity for a complete entertainment experience.",
+    "brand": "TechVision",
+    "color": "Black",
+    "weight": "25 lbs",
+    "dimensions": "55 x 30 x 5 inches"
+  },
+  {
+    "id": "ghi23456",
+    "name": "Digital Camera",
+    "price": 299.99,
+    "description": "Capture your precious moments with our high-quality digital camera. It features advanced image sensors, optical zoom, and various shooting modes to enhance your photography skills.",
+    "brand": "CapturePro",
+    "color": "Silver",
+    "weight": "0.8 lbs",
+    "dimensions": "4 x 2 x 3 inches"
+  },
+  {
+    "id": "jkl78901",
+    "name": "Wireless Gaming Mouse",
+    "price": 49.99,
+    "description": "Level up your gaming experience with our wireless gaming mouse. It offers high precision, customizable buttons, and ergonomic design for enhanced performance and comfort during gaming sessions.",
+    "brand": "GameMaster",
+    "color": "Black",
+    "weight": "0.2 lbs",
+    "dimensions": "4.5 x 2.5 x 1.5 inches"
+  },
+  {
+    "id": "mno23456",
+    "name": "Portable Bluetooth Speaker",
+    "price": 79.99,
+    "description": "Take your music anywhere with our portable Bluetooth speaker. It delivers rich audio, long battery life, and a compact design that fits in your bag for on-the-go entertainment.",
+    "brand": "SoundPro",
+    "color": "Red",
+    "weight": "0.7 lbs",
+    "dimensions": "6 x 4 x 3 inches"
+  },
+  {
+    "id": "pqr78901",
+    "name": "Smart Thermostat",
+    "price": 129.99,
+    "description": "Control your home temperature with our smart thermostat. It offers programmable settings, energy-saving features, and remote control capabilities for optimal comfort and efficiency.",
+    "brand": "EcoHome",
+    "color": "White",
+    "weight": "0.5 lbs",
+    "dimensions": "3.5 x 3.5 x 0.5 inches"
+  },
+  {
+    "id": "abc12345",
+    "name": "Wireless Bluetooth Headphones",
+    "price": 99.99,
+    "description": "Experience superior sound quality and freedom with our wireless Bluetooth headphones...",
+    "brand": "Acoustic Vibes",
+    "color": "Black",
+    "weight": "0.3 lbs",
+    "dimensions": "7.5 x 3.5 x 9 inches"
+  },
+  {
+    "id": "def67890",
+    "name": "Smart LED TV",
+    "price": 499.99,
+    "description": "Enjoy stunning visuals and smart features with our Smart LED TV...",
+    "brand": "TechVision",
+    "color": "Black",
+    "weight": "25 lbs",
+    "dimensions": "55 x 30 x 5 inches"
+  },
+  {
+    "id": "ghi23456",
+    "name": "Digital Camera",
+    "price": 299.99,
+    "description": "Capture your precious moments with our high-quality digital camera...",
+    "brand": "CapturePro",
+    "color": "Silver",
+    "weight": "0.8 lbs",
+    "dimensions": "4 x 2 x 3 inches"
+  },
+  {
+    "id": "jkl78901",
+    "name": "Wireless Gaming Mouse",
+    "price": 49.99,
+    "description": "Level up your gaming experience with our wireless gaming mouse...",
+    "brand": "GameMaster",
+    "color": "Black",
+    "weight": "0.2 lbs",
+    "dimensions": "4.5 x 2.5 x 1.5 inches"
+  },
+  {
+    "id": "mno23456",
+    "name": "Portable Bluetooth Speaker",
+    "price": 79.99,
+    "description": "Take your music anywhere with our portable Bluetooth speaker...",
+    "brand": "SoundPro",
+    "color": "Red",
+    "weight": "0.7 lbs",
+    "dimensions": "6 x 4 x 3 inches"
+  },
+  {
+    "id": "pqr78901",
+    "name": "Smart Thermostat",
+    "price": 129.99,
+    "description": "Control your home temperature with our smart thermostat...",
+    "brand": "EcoHome",
+    "color": "White",
+    "weight": "0.5 lbs",
+    "dimensions": "3.5 x 3.5 x 0.5 inches"
+  },
+  {
+    "id": "stu23456",
+    "name": "Wireless Earbuds",
+    "price": 89.99,
+    "description": "Enjoy wireless freedom and high-quality sound with our wireless earbuds...",
+    "brand": "SoundWave",
+    "color": "Black",
+    "weight": "0.1 lbs",
+    "dimensions": "2.5 x 1.5 x 1 inches"
+  },
+  {
+    "id": "vwx78901",
+    "name": "Laptop Backpack",
+    "price": 59.99,
+    "description": "Carry your laptop and essentials in style with our laptop backpack...",
+    "brand": "TechGear",
+    "color": "Gray",
+    "weight": "1.5 lbs",
+    "dimensions": "18 x 12 x 6 inches"
+  },
+  {
+    "id": "abc12345",
+    "name": "Wireless Bluetooth Headphones",
+    "price": 99.99,
+    "description": "Experience superior sound quality and freedom with our wireless Bluetooth headphones. These headphones provide a comfortable fit, noise cancellation, and long battery life for an immersive audio experience.",
+    "brand": "Acoustic Vibes",
+    "color": "Black",
+    "weight": "0.3 lbs",
+    "dimensions": "7.5 x 3.5 x 9 inches"
+  },
+  {
+    "id": "def67890",
+    "name": "Smart LED TV",
+    "price": 499.99,
+    "description": "Enjoy stunning visuals and smart features with our Smart LED TV. It offers high-definition resolution, built-in streaming services, and seamless connectivity for a complete entertainment experience.",
+    "brand": "TechVision",
+    "color": "Black",
+    "weight": "25 lbs",
+    "dimensions": "55 x 30 x 5 inches"
+  },
+  {
+    "id": "ghi23456",
+    "name": "Digital Camera",
+    "price": 299.99,
+    "description": "Capture your precious moments with our high-quality digital camera. It features advanced image sensors, optical zoom, and various shooting modes to enhance your photography skills.",
+    "brand": "CapturePro",
+    "color": "Silver",
+    "weight": "0.8 lbs",
+    "dimensions": "4 x 2 x 3 inches"
+  },
+  {
+    "id": "jkl78901",
+    "name": "Wireless Gaming Mouse",
+    "price": 49.99,
+    "description": "Level up your gaming experience with our wireless gaming mouse. It offers high precision, customizable buttons, and ergonomic design for enhanced performance and comfort during gaming sessions.",
+    "brand": "GameMaster",
+    "color": "Black",
+    "weight": "0.2 lbs",
+    "dimensions": "4.5 x 2.5 x 1.5 inches"
+  },
+  {
+    "id": "mno23456",
+    "name": "Portable Bluetooth Speaker",
+    "price": 79.99,
+    "description": "Take your music anywhere with our portable Bluetooth speaker. It delivers rich audio, long battery life, and a compact design that fits in your bag for on-the-go entertainment.",
+    "brand": "SoundPro",
+    "color": "Red",
+    "weight": "0.7 lbs",
+    "dimensions": "6 x 4 x 3 inches"
+  },
+  {
+    "id": "pqr78901",
+    "name": "Smart Thermostat",
+    "price": 129.99,
+    "description": "Control your home temperature with our smart thermostat. It offers programmable settings, energy-saving features, and remote control capabilities for optimal comfort and efficiency.",
+    "brand": "EcoHome",
+    "color": "White",
+    "weight": "0.5 lbs",
+    "dimensions": "3.5 x 3.5 x 0.5 inches"
+  }
+]

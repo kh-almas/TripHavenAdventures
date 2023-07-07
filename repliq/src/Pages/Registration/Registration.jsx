@@ -6,14 +6,10 @@ import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css"
 import auth from "../../Firebase/Firebase.config.js";
 
-const Login = () => {
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/dashboard';
-
+const Registration = () => {
     useEffect(() => {
         const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(auth);
-        ui.start('#phone_auth', {
+        ui.start('#registration_form', {
             signInOptions: [
                 {
                     provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
@@ -24,20 +20,19 @@ const Login = () => {
             signInSuccessUrl: `/dashboard`,
         });
     }, [])
+
     return (
         <div className="flex justify-center items-center h-screen">
-            <div className="w-full sm:w-96 px-4">
-                <h1 className="text-3xl font-bold mb-4">Login</h1>
-
-                <div id="phone_auth"></div>
-
+            <div className="w-full max-w-md px-4">
+                <h1 className="text-3xl font-bold mb-4">Registration</h1>
+                <div id="registration_form"></div>
                 <p className="mt-4 text-sm text-gray-600">
-                    Don't have any account?{' '}
-                    <Link to="/registration" className="text-blue-500 hover:text-blue-700">Registration here</Link>
+                    Already have an account?{' '}
+                    <Link to="/login" className="text-blue-500 hover:text-blue-700">Login here</Link>
                 </p>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default Registration;

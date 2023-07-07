@@ -12,6 +12,8 @@ import Dashboard from "../Dashboard/Dashboard/Dashboard.jsx";
 import DashboardLayouts from "../Layouts/Dashboard/DashboardLayouts.jsx";
 import CustomerList from "../Dashboard/CustomerList/CustomerList.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
+import AddCustomer from "../Dashboard/AddCustomer/AddCustomer.jsx";
+import CustomerDetails from "../Dashboard/CustomerDetails/CustomerDetails.jsx";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +53,16 @@ const router = createBrowserRouter([
             {
                 path: "/dashboard/customer",
                 element: <PrivateRoute><CustomerList /></PrivateRoute>
+            },
+            {
+                path: "/dashboard/customer/create",
+                // element: <PrivateRoute><AddCustomer /></PrivateRoute>
+                element: <AddCustomer />
+            },
+            {
+                path: "/dashboard/customer/details/:id",
+                // element: <PrivateRoute><CustomerDetails /></PrivateRoute>
+                element: <CustomerDetails />
             },
         ]
     },
