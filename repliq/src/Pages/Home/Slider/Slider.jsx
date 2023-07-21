@@ -10,6 +10,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+import img1 from "../../../assets/sliderImg/slider1.jpg";
+import img2 from "../../../assets/sliderImg/slider2.jpg";
+import img3 from "../../../assets/sliderImg/slider3.jpg";
+import img4 from "../../../assets/sliderImg/slider4.jpg";
+
 const Slider = () => {
     return (
         <Swiper
@@ -23,16 +28,16 @@ const Slider = () => {
             onSlideChange={() => console.log('slide change')}
         >
             <SwiperSlide>
-                <img className="w-full h-[500px]" src="https://soliloquywp.com/wp-content/uploads/2016/10/multiple-image-slider-wordpress.png" alt="img"/>
+                <img className="w-full h-[500px]" src={img1} alt="img"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img className="w-full h-[500px]" src="https://soliloquywp.com/wp-content/uploads/2016/10/multiple-image-slider-wordpress.png" alt="img"/>
+                <img className="w-full h-[500px]" src={img2} alt="img" />
             </SwiperSlide>
             <SwiperSlide>
-                <img className="w-full h-[500px]" src="https://soliloquywp.com/wp-content/uploads/2016/10/multiple-image-slider-wordpress.png" alt="img"/>
+                <img className="w-full h-[500px]" src={img3} alt="img" />
             </SwiperSlide>
             <SwiperSlide>
-                <img className="w-full h-[500px]" src="https://soliloquywp.com/wp-content/uploads/2016/10/multiple-image-slider-wordpress.png" alt="img"/>
+                <img className="w-full h-[500px]" src={img4} alt="img"/>
             </SwiperSlide>
             ...
         </Swiper>

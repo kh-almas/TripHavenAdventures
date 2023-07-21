@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import Swal from "sweetalert2";
+import productDemoImage from "../../assets/demo/demoProduct.webp";
 
 const ProductList = () => {
     const [products, setProducts] = useState([])
@@ -28,7 +29,7 @@ const ProductList = () => {
                 {
                     products?.map((info, index) =>
                         <div key={index} className="max-w-sm mx-auto bg-white rounded-md shadow-md overflow-hidden w-full">
-                            <img src="https://via.placeholder.com/200" alt="Product 1" className="w-full h-48 object-cover" />
+                            <img src={productDemoImage} alt="Product 1" className="w-full h-48 object-cover" />
                             <div className="px-4 py-3">
                                 <h2 className="text-xl font-semibold text-gray-800">{info?.name}</h2>
                                 <p className="text-gray-600">${info?.price}</p>

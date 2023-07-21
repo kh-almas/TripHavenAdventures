@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Link, useParams} from "react-router-dom";
 import Swal from "sweetalert2";
 import {AuthContext} from "../../Provider/AuthProvider.jsx";
+import productDemoImage from "../../assets/demo/demoProduct.webp";
 
 const ProductDetails = () => {
     const {id} = useParams();
@@ -76,7 +77,7 @@ const ProductDetails = () => {
                 <div className="max-w-4xl mx-auto bg-white rounded-md shadow-md overflow-hidden w-full">
                     <div className="md:flex">
                         <div className="md:flex-shrink-0 flex justify-center items-center">
-                            <img src="https://via.placeholder.com/400" alt="Wireless Bluetooth Headphones" className="h-64 w-full object-cover md:w-64"/>
+                            <img src={productDemoImage} alt="Wireless Bluetooth Headphones" className="h-64 w-full object-cover md:w-64"/>
                         </div>
                         <div className="p-6">
                             <h2 className="text-3xl font-semibold text-gray-800">{product.name}</h2>
@@ -110,7 +111,7 @@ const ProductDetails = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <div className="max-w-sm mx-auto bg-white rounded-md shadow-md overflow-hidden">
-                    <img src="https://via.placeholder.com/200" alt="Product 1" className="w-full h-48 object-cover" />
+                    <img src={productDemoImage} alt="Product 1" className="w-full h-48 object-cover" />
                     <div className="px-4 py-3">
                         <h2 className="text-xl font-semibold text-gray-800">Product 1</h2>
                         <p className="text-gray-600">$9.99</p>
@@ -119,7 +120,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
                 <div className="max-w-sm mx-auto bg-white rounded-md shadow-md overflow-hidden">
-                    <img src="https://via.placeholder.com/200" alt="Product 1" className="w-full h-48 object-cover" />
+                    <img src={productDemoImage} alt="Product 1" className="w-full h-48 object-cover" />
                     <div className="px-4 py-3">
                         <h2 className="text-xl font-semibold text-gray-800">Product 1</h2>
                         <p className="text-gray-600">$9.99</p>
@@ -128,7 +129,7 @@ const ProductDetails = () => {
                     </div>
                 </div>
                 <div className="max-w-sm mx-auto bg-white rounded-md shadow-md overflow-hidden">
-                    <img src="https://via.placeholder.com/200" alt="Product 1" className="w-full h-48 object-cover" />
+                    <img src={productDemoImage} alt="Product 1" className="w-full h-48 object-cover" />
                     <div className="px-4 py-3">
                         <h2 className="text-xl font-semibold text-gray-800">Product 1</h2>
                         <p className="text-gray-600">$9.99</p>
