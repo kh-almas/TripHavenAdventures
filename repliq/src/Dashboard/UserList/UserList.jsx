@@ -2,14 +2,14 @@ import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import Swal from "sweetalert2";
 
-const CustomerList = () => {
-    const [customer, setCustomer] = useState([])
+const UserList = () => {
+    const [userInfo, setUserInfo] = useState([])
     const [isDeleted, setIsDeleted] = useState(false);
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_BASE_URL}/all-customers`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/all-users`)
             .then(res => res.json())
-            .then(data => setCustomer(data))
+            .then(data => setUserInfo(data))
             .catch(e => {
                 Swal.fire({
                     position: 'top-end',
@@ -40,7 +40,7 @@ const CustomerList = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`${import.meta.env.VITE_BASE_URL}/customers/${id}`, {
+                fetch(`${import.meta.env.VITE_BASE_URL}/user/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -80,29 +80,29 @@ const CustomerList = () => {
 
     return (
         <>
-            <div>
-                <Link to={'/dashboard/customer/create'} className="btn btn-accent text-white mb-5">create</Link>
+            <div className="mb-4">
+                <h3 className="text-3xl">Manage User</h3>
             </div>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
                             <th>Phone Number</th>
+                            <th>Role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                     {
-                        customer?.map((info, index) =>
+                        userInfo?.map((info, index) =>
                             <tr key={index}>
                                 <th>{index + 1}</th>
-                                <td>{info?.name}</td>
-                                <td>{info?.phone}</td>
+                                <td>{info?.phoneNumber}</td>
+                                <td>{info?.role}</td>
                                 <td>
                                     <button onClick={() => removeCustomer(info?._id)} className="btn btn-ghost btn-xs">remove</button>
-                                    <Link to={`/dashboard/customer/details/${info?._id}`} className="btn btn-ghost btn-xs">details</Link>
+                                    <Link to={`/dashboard/user/details/${info?._id}`} className="btn btn-ghost btn-xs">details</Link>
                                 </td>
                             </tr>
                         )
@@ -115,4 +115,4 @@ const CustomerList = () => {
     );
 };
 
-export default CustomerList;
+export default UserList;

@@ -91,14 +91,13 @@ const Cart = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if(data.insertedCount){
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Successfully placed order.',
+                        title: 'Successfully placed order. We will contact with you via phone call',
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 3500
                     })
                     navigate('/all-product', { replace: true });
                 }
@@ -117,9 +116,6 @@ const Cart = () => {
 
     return (
         <div className="px-12 pt-20">
-            <div className="mb-8 flex justify-end">
-                <button onClick={() => orderNow()} className="btn btn-success text-white">BUY NOW</button>
-            </div>
             <div className="overflow-x-auto" >
                 <table className="table">
                     <thead>
@@ -137,9 +133,9 @@ const Cart = () => {
                     {
                         cartItem?.map((item, index) =>
                             <tr key={index}>
-                                <th>
+                                <td>
                                     {index + 1}
-                                </th>
+                                </td>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
@@ -153,9 +149,9 @@ const Cart = () => {
                                 <td>{item.price}</td>
                                 <td>{item.weight}</td>
                                 <td>{item.dimensions}</td>
-                                <th>
+                                <td>
                                     <button onClick={() => removeCartProduct(item._id)} className="btn btn-ghost btn-xs">remove</button>
-                                </th>
+                                </td>
                             </tr>
                         )
                     }

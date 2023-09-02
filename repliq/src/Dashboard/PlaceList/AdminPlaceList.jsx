@@ -2,14 +2,17 @@ import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AdminProductList = () => {
-    const [products, setProducts] = useState([])
+const AdminPlaceList = () => {
+    const [place, setPlace] = useState([])
     const [isDeleted, setIsDeleted] = useState(false);
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_BASE_URL}/all-products`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/all-place`)
             .then(res => res.json())
-            .then(data => setProducts(data))
+            .then(data => {
+                setPlace(data);
+                console.log(data);
+            })
             .catch(e => {
                 console.log(e);
                 Swal.fire({
@@ -22,7 +25,7 @@ const AdminProductList = () => {
             })
     }, [isDeleted])
 
-    const removeCustomer = id => {
+    const removePlace = id => {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: 'btn btn-success',
@@ -41,7 +44,7 @@ const AdminProductList = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`${import.meta.env.VITE_BASE_URL}/product/${id}`, {
+                fetch(`${import.meta.env.VITE_BASE_URL}/place/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -50,7 +53,7 @@ const AdminProductList = () => {
                         if(data.deletedCount){
                             swalWithBootstrapButtons.fire(
                                 'Deleted!',
-                                'Product has been deleted.',
+                                'Place info has been deleted.',
                                 'success'
                             )
                             setIsDeleted(!isDeleted)
@@ -81,38 +84,36 @@ const AdminProductList = () => {
     return (
         <>
             <div>
-                <Link to={'/dashboard/product/create'} className="btn btn-accent text-white mb-5">create</Link>
+                <Link to={'/dashboard/place/create'} className="btn btn-accent text-white mb-5">create</Link>
             </div>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
-                    {/* head */}
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Brand</th>
-                        <th>color</th>
+                        <th>Image</th>
+                        <th>Category</th>
+                        <th>Place Name</th>
+                        <th>Location</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     {
-                        products?.map((info, index) =>
+                        place?.map((info, index) =>
                             <tr key={index}>
                                 <th>{index + 1}</th>
-                                <td>{info?.name}</td>
-                                <td>{info?.price}</td>
-                                <td>{info?.brand}</td>
-                                <td>{info?.color}</td>
+                                <td>{"info?.image"}</td>
+                                <td>{info?.category}</td>
+                                <td>{info?.placeName}</td>
+                                <td>{info?.location}</td>
                                 <td>
-                                    <button onClick={() => removeCustomer(info?._id)} className="btn btn-ghost btn-xs">remove</button>
-                                    <Link to={`/dashboard/product/details/${info?._id}`} className="btn btn-ghost btn-xs">details</Link>
+                                    <button onClick={() => removePlace(info?._id)} className="btn btn-ghost btn-xs">remove</button>
+                                    <Link to={`/dashboard/place/update/${info?._id}`} className="btn btn-ghost btn-xs">Update</Link>
                                 </td>
                             </tr>
                         )
                     }
-
                     </tbody>
                 </table>
             </div>
@@ -120,4 +121,4 @@ const AdminProductList = () => {
     );
 };
 
-export default AdminProductList;
+export default AdminPlaceList;

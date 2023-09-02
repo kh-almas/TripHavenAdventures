@@ -1,14 +1,18 @@
 import React from 'react';
 import Slider from "./Slider/Slider.jsx";
-import Matcher from "./Matcher/Matcher.jsx";
-import BestProduct from "./BestProduct/BestProduct.jsx";
+import Newsletter from "./Newsletter/Newsletter.jsx";
+import BestPlace from "./BestPlace/BestPlace.jsx";
+import GuidesAndExpriences from "./GuidesAndExpriences/GuidesAndExpriences.jsx";
+import CategorySection from "./CategorySection/CategorySection.jsx";
 
 const Home = () => {
     return (
         <div className="p-20">
             <Slider />
-            <BestProduct />
-            <Matcher />
+            <BestPlace />
+            <GuidesAndExpriences />
+            <CategorySection />
+            <Newsletter />
         </div>
     );
 };

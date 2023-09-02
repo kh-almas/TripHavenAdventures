@@ -6,6 +6,7 @@ import { BsFillHousesFill } from "react-icons/bs";
 import { FaCreativeCommonsBy } from "react-icons/fa";
 import { FaLuggageCart } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa";
 import {AuthContext} from "../../Provider/AuthProvider.jsx";
 import Swal from "sweetalert2";
 
@@ -46,14 +47,17 @@ const DashboardLayouts = () => {
                     <div className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                         <ul>
                             <li><Link to={'/dashboard'} ><BsFillHousesFill></BsFillHousesFill> Home</Link></li>
-                            <li><Link to={'/dashboard/customer'} > <FaCreativeCommonsBy></FaCreativeCommonsBy> Customers</Link></li>
-                            <li><Link to={'/dashboard/order'} ><FaLuggageCart></FaLuggageCart> Order</Link></li>
-                            <li><Link to={'/dashboard/product'} ><HiArchiveBox></HiArchiveBox> Product</Link></li>
+                            <li><Link to={'/dashboard/users'} > <FaCreativeCommonsBy></FaCreativeCommonsBy> Users</Link></li>
+                            <li><Link to={'/dashboard/insights'} ><FaLuggageCart></FaLuggageCart> Insights</Link></li>
+                            <li><Link to={'/dashboard/insights/all'} ><FaLuggageCart></FaLuggageCart> All Insights</Link></li>
+                            <li><Link to={'/dashboard/place'} ><HiArchiveBox></HiArchiveBox> Place</Link></li>
+                            <li><Link to={'/dashboard/subscribers'} ><FaUsers></FaUsers> Subscribers</Link></li>
+                            <li><Link to={'/dashboard/cart'} ><FaUsers></FaUsers> Favourite Place</Link></li>
                         </ul>
                         <div className="divider"></div>
                         <ul>
                             <li><Link to={'/'} ><FiHome></FiHome> Home</Link></li>
-                            <li><Link to={'/all-product'} ><HiArchiveBox></HiArchiveBox> All Product</Link></li>
+                            <li><Link to={'/all-place'} ><HiArchiveBox></HiArchiveBox> All Place</Link></li>
                         </ul>
                         <div className="divider"></div>
                         <button onClick={handelLogout} className="mr-4 flex items-center"><FaSignOutAlt className="mr-2"></FaSignOutAlt>Logout</button>
