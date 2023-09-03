@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link, Outlet} from "react-router-dom";
 import { FiHome } from "react-icons/fi";
 import { HiArchiveBox } from "react-icons/hi2";
@@ -12,6 +12,11 @@ import Swal from "sweetalert2";
 
 const DashboardLayouts = () => {
     const {user, logout} = useContext(AuthContext);
+    // const [role, setRole] = useState('');
+    // console.log(role);
+    // useEffect(() => {
+    //     setRole(user);
+    // }, [user]);
     const handelLogout = () =>{
         logout()
             .then(() => {
@@ -46,17 +51,29 @@ const DashboardLayouts = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <div className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                         <ul>
-                            <li><Link to={'/dashboard'} ><BsFillHousesFill></BsFillHousesFill> Home</Link></li>
-                            <li><Link to={'/dashboard/users'} > <FaCreativeCommonsBy></FaCreativeCommonsBy> Users</Link></li>
-                            <li><Link to={'/dashboard/insights'} ><FaLuggageCart></FaLuggageCart> Insights</Link></li>
-                            <li><Link to={'/dashboard/insights/all'} ><FaLuggageCart></FaLuggageCart> All Insights</Link></li>
-                            <li><Link to={'/dashboard/place'} ><HiArchiveBox></HiArchiveBox> Place</Link></li>
-                            <li><Link to={'/dashboard/subscribers'} ><FaUsers></FaUsers> Subscribers</Link></li>
-                            <li><Link to={'/dashboard/cart'} ><FaUsers></FaUsers> Favourite Place</Link></li>
+                            {
+                                user?.phoneNumber == '+8801628625196' ?
+                                        <>
+                                            <li><Link to={'/dashboard'} ><BsFillHousesFill></BsFillHousesFill> Home</Link></li>
+                                            <li><Link to={'/dashboard/users'} > <FaCreativeCommonsBy></FaCreativeCommonsBy> Users</Link></li>
+                                            <li><Link to={'/dashboard/insights/all'} ><FaLuggageCart></FaLuggageCart> All Insights</Link></li>
+                                            <li><Link to={'/dashboard/place'} ><HiArchiveBox></HiArchiveBox> Place</Link></li>
+                                            <li><Link to={'/dashboard/subscribers'} ><FaUsers></FaUsers> Subscribers</Link></li>
+                                        </>
+                                :
+                                    <>
+                                        <li><Link to={'/dashboard'} ><BsFillHousesFill></BsFillHousesFill> Home</Link></li>
+                                        <li><Link to={'/dashboard/insights'} ><FaLuggageCart></FaLuggageCart> Insights</Link></li>
+                                        <li><Link to={'/dashboard/favorite'} ><FaUsers></FaUsers> Favorite Place</Link></li>
+                                    </>
+
+                            }
+
                         </ul>
                         <div className="divider"></div>
                         <ul>
                             <li><Link to={'/'} ><FiHome></FiHome> Home</Link></li>
+                            <li><Link to={'/insights'} ><FaLuggageCart></FaLuggageCart> Insights</Link></li>
                             <li><Link to={'/all-place'} ><HiArchiveBox></HiArchiveBox> All Place</Link></li>
                         </ul>
                         <div className="divider"></div>

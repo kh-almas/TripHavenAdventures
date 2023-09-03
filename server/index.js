@@ -70,11 +70,13 @@ async function run() {
       const update = {
         $set: {
           phoneNumber: data.phoneNumber,
-          role: "user",
+          role: data.phoneNumber = "+8801628625196"? "admin" : "user",
         },
       };
       const options = { upsert: true };
       const result = await usersCollection.updateOne(data, update, options);
+      // const query = { _id: new ObjectId(id) };
+      // const result = await usersCollection.findOne(query);
       res.send(result);
     });
 
@@ -101,8 +103,10 @@ async function run() {
     });
 
     // get Single users insights
-    app.get("/all-insights", async (req, res) => {
-      const result = await insightsCollection.find().toArray();
+    app.get("/insights/:phone", async (req, res) => {
+      const phone = req.params.phone;
+      const query = { userPhone: phone };
+      const result = await insightsCollection.find(query).toArray();
       res.send(result);
     });
 

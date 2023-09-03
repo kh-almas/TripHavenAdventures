@@ -12,7 +12,10 @@ const Cart = () => {
     useEffect(() => {
         fetch(`${import.meta.env.VITE_BASE_URL}/cart/${user.phoneNumber}`)
             .then(res => res.json())
-            .then(data => setCartItem(data))
+            .then(data => {
+                console.log(data);
+                setCartItem(data);
+            })
             .catch(e => {
                 console.log(e);
                 Swal.fire({
@@ -53,7 +56,7 @@ const Cart = () => {
                         if(data.deletedCount){
                             swalWithBootstrapButtons.fire(
                                 'Deleted!',
-                                'Item removed from cart',
+                                'Item removed',
                                 'success'
                             )
                             setIsDeleted(!isDeleted)
@@ -81,39 +84,6 @@ const Cart = () => {
         })
     }
 
-    const orderNow = () => {
-        fetch(`${import.meta.env.VITE_BASE_URL}/order`, {
-            method: 'POST',
-            headers:{
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(cartItem),
-        })
-            .then(res => res.json())
-            .then(data => {
-                if(data.insertedCount){
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Successfully placed order. We will contact with you via phone call',
-                        showConfirmButton: false,
-                        timer: 3500
-                    })
-                    navigate('/all-product', { replace: true });
-                }
-            })
-            .catch(e => {
-                console.log(e)
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'info',
-                    title: 'Something is wrong',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            })
-    }
-
     return (
         <div className="px-12 pt-20">
             <div className="overflow-x-auto" >
@@ -121,11 +91,8 @@ const Cart = () => {
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>product Image</th>
-                        <th>name</th>
-                        <th>Price</th>
-                        <th>Weight</th>
-                        <th>Dimensions</th>
+                        <th>Category</th>
+                        <th>Place name</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -136,19 +103,8 @@ const Cart = () => {
                                 <td>
                                     {index + 1}
                                 </td>
-                                <td>
-                                    <div className="flex items-center space-x-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src="https://via.placeholder.com/400" alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>{item.name}</td>
-                                <td>{item.price}</td>
-                                <td>{item.weight}</td>
-                                <td>{item.dimensions}</td>
+                                <td>{item.category}</td>
+                                <td>{item.placeName}</td>
                                 <td>
                                     <button onClick={() => removeCartProduct(item._id)} className="btn btn-ghost btn-xs">remove</button>
                                 </td>

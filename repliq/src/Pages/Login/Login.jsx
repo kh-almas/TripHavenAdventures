@@ -16,7 +16,7 @@ const Login = () => {
         {
           provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
           defaultCountry: "BD",
-          defaultNationalNumber: "01",
+          defaultNationalNumber: "1",
         },
       ],
 

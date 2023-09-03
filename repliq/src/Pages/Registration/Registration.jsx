@@ -17,7 +17,7 @@ const Registration = () => {
         {
           provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
           defaultCountry: "BD",
-          defaultNationalNumber: "1234567890",
+          defaultNationalNumber: "1",
         },
       ],
       //set user info in database

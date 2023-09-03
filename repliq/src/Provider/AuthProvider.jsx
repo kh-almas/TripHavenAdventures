@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, user => {
             setUser(user);
-            console.log(user)
+            // console.log(user?.phoneNumber);
             if(user)
             {
                 const info = {phoneNumber : user.phoneNumber}
@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
+                        // setUser(data)
 
                     })
                     .catch(e => {

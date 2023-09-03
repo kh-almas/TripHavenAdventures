@@ -76,8 +76,8 @@ const router = createBrowserRouter([
         element: <PrivateRoute><UserDetails /></PrivateRoute>
       },
       {
-        path: "/dashboard/cart",
-        element: <Cart />,
+        path: "/dashboard/favorite",
+        element: <PrivateRoute><Cart /></PrivateRoute>,
       },
       {
         path: "/dashboard/place/create",

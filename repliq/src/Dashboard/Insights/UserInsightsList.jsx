@@ -1,13 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Link} from "react-router-dom";
 import Swal from "sweetalert2";
+import {AuthContext} from "../../Provider/AuthProvider.jsx";
 
 const AdminPlaceList = () => {
     const [insights, setInsights] = useState([])
     const [isDeleted, setIsDeleted] = useState(false);
+    const {user} = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_BASE_URL}/all-insights`)
+        fetch(`${import.meta.env.VITE_BASE_URL}/insights/${user?.phoneNumber}`)
             .then(res => res.json())
             .then(data => {
                 setInsights(data);
